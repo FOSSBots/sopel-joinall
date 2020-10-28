@@ -1,0 +1,35 @@
+language: python
+python:
+- '3.6'
+- '3.7'
+- '3.8'
+- 3.8-dev
+dist: xenial
+os: linux
+install:
+- pip install .
+- pip install flake8
+before_script:
+- python --version
+- pip show sopel_plugins.joinall
+script:
+- flake8 sopel_joinall/joinall --max-line-length 265 --exclude=__init__.py
+after_script:
+- pip freeze
+deploy:
+  provider: pypi
+  username: __token__
+  password:
+    secure: ZSjmgqasVppSV2QCHu+xJ9YXgTA/7ZhDJeMqUlFrT/CZdlDbsfSr+r6BpSlee0RjfrFc2Ox3R0TgZ0tHQte+s8metlGzza4X3GdLELXoS6LPomZ0zJ3lNb1xXr/J7RPj/NhhBqAScyrqysvEWHjjvSshd1Fl8jMpQjrJUDx/DjHjRWcvfwvJOnkAfGayPqUFhgdCKZN/c3dudQhi/t+lCvoqfbP5Df7BlgKriayvw3x+3ULv6/tGBDyN3wfPR74pMsXYp8S3uWN/NoovOBc0aeEjAVQiqlP+mC98xSomFbOjk/gAuXLeb9DwGSlgwBvu47STOAqBE0QIaE9OPZvemeEXcoTF5bLkqf3Sgjg9EfYZfw44C78YsyLBdDgBcOFowUNTm26rLJAYe9Oej2+n6ok5rdDYojY57H/HNnLndiO5UT8kJPtde8h1Y+KVT0tht3tl5r5QDu2l49YyzmQV2TuIL2ubcRnWIdZpgGA+hVU1SVSgSkwL9AVzygFXjAMHG+UYLLcX2ke3ma0nTJWGgE0JymVHnMZhjHyrDT7iuSwV18N+qHgdUfZ7V1tWtHCJfzwl7sSAjobvsfMqXeiSDQeUcPv4tU6W5i8YaJiJddFnrsduH5jgXQt7Pk/ZDu3BnyEDQ6ZhTF1QBD7+Lwc5xRPsrccWZQw6Wo4Rm7j6qWg=
+  on:
+    python: '3.7'
+    branch: main
+  skip_existing: true
+notifications:
+  irc:
+    channels:
+    - chat.freenode.net#miraheze-bots
+    on_success: change
+    on_failure: always
+    template:
+    - "%{repository}/%{branch}/%{commit} - %{author} %{message} %{build_url}"
