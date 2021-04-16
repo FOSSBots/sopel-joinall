@@ -4,17 +4,17 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 with open('requirements.txt') as requirements_file:
-    requirements = [req for req in requirements_file.readlines()]
+    requirements = list(requirements_file.readlines())
 
 
 setup(
     name='sopel_plugins.joinall',
-    version='1.0.2',
+    version='1.0.3',
     description='joinall plugin for Sopel',
     long_description=readme,
     long_description_content_type='text/markdown',  # This is important!
     author='MirahezeBot Contributors',
-    author_email='bots@miraheze.org',
+    author_email='staff@mirahezebots.org',
     url='https://github.com/MirahezeBots/sopel-joinall',
     packages=find_packages('.'),
     include_package_data=True,
