@@ -9,7 +9,7 @@ with open('requirements.txt') as requirements_file:
 
 setup(
     name='sopel_plugins.joinall',
-    version='1.0.3',
+    version='1.0.4',
     description='joinall plugin for Sopel',
     long_description=readme,
     long_description_content_type='text/markdown',  # This is important!
