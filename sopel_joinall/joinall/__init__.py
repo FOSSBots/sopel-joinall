@@ -1,6 +1,6 @@
 """This plugin implements .joinall."""
 
-from sopel.module import commands, thread, require_admin
+from sopel.plugin import commands, thread, require_admin
 
 import time
 
