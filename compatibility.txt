@@ -11,5 +11,5 @@ sopel-modules.urban==1.2.1
 sopel-plugins.adminlist==1.0.7
 sopel-plugins.pingpong==1.0.5
 sopel-plugins.joinall==1.0.4
-pipdeptree==2.2.0
+pipdeptree==2.2.1
 MirahezeBot-Plugins==9.1.5
