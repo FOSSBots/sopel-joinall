@@ -23,7 +23,7 @@ jobs:
         with:
           submodules: true
       - name: Setup Python ${{ matrix.python }} on ${{ matrix.os }}
-        uses: actions/setup-python@v3.1.2
+        uses: actions/setup-python@v4.5.0
         with:
           python-version: ${{ matrix.python }} 
       - name: Install packages
